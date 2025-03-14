@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- jQuery & jQuery UI for Autocomplete -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var stockTickers = [
+                "MSFT", "AAPL", "GOOGL", "AMZN", "TSLA", "META", "NVDA", "SPY", "V", "AMD",
+                "NVDA", "INTC", "CSCO", "WMT", "DIS", "MCD", "BA", "PYPL", "SNAP", "NKE",
+                "XOM", "CVX", "JNJ", "PFE", "BABA", "T", "VZ", "GE", "IBM", "GS", "JPM", "MS", 
+                "GS", "UNH", "CVS", "HD", "LOW", "UPS", "SBUX", "BLK", "DELL", "LMT", "ABT", 
+                "TXN", "TMO", "MRK", "AMAT", "INTU", "ADI", "MU", "LULU", "PLUG", "F", "GM", 
+                "COF", "STZ", "KMX", "TSCO", "LMT", "SHOP", "SQ", "BIDU", "SPG", "MELI", "BA", 
+                "ATVI", "GS", "CAT", "HLT", "TGT", "DOW", "COP", "BA", "NKE", "LULU", "GS", 
+                "JNJ", "JPM", "BRK-A", "MSFT", "V", "TSLA", "XOM", "PFE", "WMT", "GE", "T", 
+                "VZ", "AMZN", "BABA", "CSCO", "NVDA", "AAPL", "GOOGL", "INTC", "AMT", "CVX", 
+                "META", "WFC", "KO", "PEP", "K", "SBUX", "NKE", "LOW", "MCD", "DIS", "WMT", 
+                "XOM", "UPS", "HD", "TMO", "PYPL", "UBER", "ZM", "TEAM", "MDB", "DKNG"
+            ];
+
+            $('#ticker').autocomplete({
+                source: stockTickers
+            });
+        });
+    </script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        /* Container */
+        .container {
+            background: white;
+            padding: 40px;
+            margin: 50px auto;
+            width: 40%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Form */
+        .stock-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Stock Future Prediction</h1>
+        
+
+        <!-- Stock Search Form -->
+        <form action="/predict" method="POST" class="stock-form">
+            <label for="ticker">Enter Stock Ticker:</label>
+            <input type="text" id="ticker" name="ticker" placeholder="e.g. AAPL, TSLA" required>
+            <button type="submit" class="btn-submit">Get Predictions</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Stock Prediction System | Developed by Ethan Severance</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ ticker }} Stock Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>{{ ticker }} Stock Prediction</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="stock-info">
+            <h2>Stock Overview</h2>
+            <p><strong>Date of Latest Data:</strong> {{ latest_date }}</p>
+            <p><strong>Current Price:</strong> ${{ current_price }}</p>
+            <p><strong>Predicted Price (30 days ahead):</strong> ${{ predicted_price }}</p>
+            <p><strong>Price Change:</strong> {{ price_change }}%</p>
+        </div>
+
+        <a href="/select-stock" class="cta-btn">Select Another Stock</a>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Stock Prediction</p>
+    </footer>
+
+</body>
+</html>
