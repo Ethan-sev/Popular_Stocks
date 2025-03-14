@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # Load the new regression model for predicting stock price 30 days ahead
-with open(r'C:\Users\Sezy\OneDrive\Personal_Trading_Algo\Saved_Models\stock_price_predictor_model.pkl', 'rb') as f:
+with open(r'C:\Users\Sezy\OneDrive\Own_Workspace\Popular_Stocks\Saved_Models\stock_price_predictor_model.pkl', 'rb') as f:
     regression_model = pickle.load(f)
 
 app = Flask(__name__)
@@ -34,7 +34,7 @@ def predict_route():
         return "Ticker is required!", 400
 
     # Load the stock data for the selected ticker from CSV
-    csv_path = r"C:\Users\Sezy\OneDrive\Personal_Trading_Algo\CSV_FILES\top_100_stocks_2025_updated.csv"
+    csv_path = r"C:\Users\Sezy\OneDrive\Own_Workspace\Popular_Stocks\CSV_FILES\top_100_stocks_2025_updated.csv"
     data = pd.read_csv(csv_path)
     stock_data = data[data['Ticker'] == ticker]
     
